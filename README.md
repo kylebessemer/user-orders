@@ -11,7 +11,7 @@ An example Flask application written in Python to demonstrate skills. It provide
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/kyleb-app/user-orders.git
+   git clone https://github.com/kylebessemer/user-orders.git
    cd user-orders
    ```
 
