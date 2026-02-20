@@ -15,11 +15,7 @@ def users_new():
         return jsonify({
             "success": True,
             "message": "User added successfully",
-            "user": {
-                "id": new_user.id,
-                "first_name": new_user.first_name,
-                "last_name": new_user.last_name
-            }
+            "user": new_user.to_json
         }), 201
     else:
         return jsonify({

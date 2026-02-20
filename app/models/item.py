@@ -7,3 +7,12 @@ class Item(db.Model):
     price = db.Column(db.Float, nullable=False)
     reviews = db.relationship('Review', backref='item')
     orders = db.relationship('OrderItem', back_populates='item')
+
+    @property
+    def to_json(self):
+        return {
+            "id": self.id,
+            "product_name": self.product_name,
+            "product_price": self.price,
+            "reviews": [review.to_json for review in self.reviews]
+        }

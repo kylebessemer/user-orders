@@ -7,20 +7,10 @@ def orders_lookup(id):
     order = lookup(id)
 
     if order:
-        items_list = [{
-            "product_name": order_item.item.product_name,
-            "product_price": order_item.item.price,
-            "quantity": order_item.quantity,
-        } for order_item in order.items]
-
         return jsonify({
             "success": True,
             "message": "Order found",
-            "order": {
-                "id": order.id,
-                "order_date": order.order_date,
-                "items": items_list
-            }
+            "order": order.to_json
         }), 200
     else:
         return jsonify({

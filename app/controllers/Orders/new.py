@@ -23,9 +23,7 @@ def orders_new():
         return jsonify({
             "success": True,
             "message": "Order added successfully",
-            "order": {
-                "id": order.id
-            }
+            "order": order.to_json
         }), 201
     else:
         return jsonify({

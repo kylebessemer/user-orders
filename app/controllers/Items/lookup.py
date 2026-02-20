@@ -11,24 +11,11 @@ def items_lookup(id):
 
     query = lookup(id, page, page_size)
 
-    review_data = []
-
     if query["item"]:
-        for review in query["item"].reviews:
-                    data = {
-                        "comment": review.comment
-                    }
-                    review_data.append(data)
-
         return jsonify({
             "success": True,
             "message": "Item found",
-            "item": {
-                "id": query["item"].id,
-                "product_name": query["item"].product_name,
-                "product_price": query["item"].price,
-                "reviews": review_data
-            },
+            "item": query["item"].to_json,
             "pagination": query["pagination"]
         }), 200
     else:

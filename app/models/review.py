@@ -5,3 +5,10 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(500))
     item_id = db.Column(db.Integer, db.ForeignKey('items.id'))
+
+    @property
+    def to_json(self):
+        return {
+            "id": self.id,
+            "comment": self.comment
+        }

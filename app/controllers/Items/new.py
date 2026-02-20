@@ -15,11 +15,7 @@ def items_new():
         return jsonify({
             "success": True,
             "message": "Item added successfully",
-            "item": {
-                "id": new_item.id,
-                "product_name": new_item.product_name,
-                "product_price": new_item.price
-            }
+            "item": new_item.to_json
         }), 201
     else:
         return jsonify({

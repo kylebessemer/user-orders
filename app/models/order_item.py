@@ -8,3 +8,11 @@ class OrderItem(db.Model):
 
     order = db.relationship('Order', back_populates='items')
     item = db.relationship('Item', back_populates='orders')
+
+    @property
+    def to_json(self):
+        return {
+            "product_name": self.item.product_name,
+            "product_price": self.item.price,
+            "quantity": self.quantity
+        }

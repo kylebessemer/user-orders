@@ -22,9 +22,7 @@ def orders_new():
         return jsonify({
             "success": True,
             "message": "Review added successfully",
-            "order": {
-                "id": review.id
-            }
+            "review": review.to_json
         }), 201
     else:
         return jsonify({
